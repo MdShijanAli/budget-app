@@ -1,11 +1,15 @@
 import React from 'react'
-import LoginPage from './Pages/LoginPage/LoginPage'
+import { RouterProvider } from 'react-router-dom'
+import { routes } from './Routes/Routes'
+import { Toaster } from 'react-hot-toast'
+
 
 const App = () => {
   return (
-    <div>
-      <LoginPage/>
-    </div>
+    <div className="">
+        <RouterProvider router={routes}></RouterProvider>
+        <Toaster/>
+      </div>
   )
 }
 
