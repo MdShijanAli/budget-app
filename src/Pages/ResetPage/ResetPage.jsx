@@ -9,9 +9,9 @@ const ResetPage = () => {
 
     return (
       <div className='h-screen bg-[#EEF2FF]'>
-           <div className='md:w-1/3 mx-auto shadow-xl'>
-                    <form  className="card bg-white ">
-                        <div className="card-body">
+          
+                    <form  className="card ">
+                        <div className="card-body  bg-white md:w-1/3 mx-auto shadow-xl my-52 rounded-3xl">
                             <h2 className="card-title">Reset Password!!!</h2>
                             <input
                                 
@@ -19,7 +19,7 @@ const ResetPage = () => {
                                 name="email"
                                 id="email"
                                 placeholder="Enter email address"
-                                className="block mt-5 w-full py-4 pl-10 pr-4 text-base text-black placeholder-gray-500 transition-all duration-200 border-gray-200 rounded-md  caret-blue-600 focus:outline-none focus:border-[#00b22d] focus:bg-white focus:ring-1 focus:ring-[#00b22d]"
+                                className="block mt-5 w-full py-4 pl-10 pr-4 text-base text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 bg-gray-50 rounded-md  caret-blue-600 focus:outline-none focus:border-[#00b22d] focus:bg-white focus:ring-1 focus:ring-[#00b22d]"
                                 required
                             />
                             <div className="card-actions justify-center mt-5 gap-3">
@@ -34,7 +34,7 @@ const ResetPage = () => {
                         </div>
                     </form>
            </div>
-        </div>
+       
     );
 };
 

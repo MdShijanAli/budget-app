@@ -10,9 +10,9 @@ const RegisterPage = () => {
     return (
         <div className='bg-indigo-50'>
             <div className=" w-3/4 mx-auto">
-                <form  className="px-10  md:py-12 py-9  md:flex items-center justify-center">
+                <form  className="px-10 md:py-12 py-9 md:flex items-center justify-center">
 
-                    <div className="bg-white shadow-lg rounded xl:w-1/2 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-10 py-6">
+                    <div className="bg-white shadow-lg rounded xl:w-1/2 w-2/3 w-full lg:px-10 sm:px-6 sm:py-10 px-10 py-6 mb-20 md:mb-0">
                         <p tabIndex={0} className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">
                             Create an account
                         </p>

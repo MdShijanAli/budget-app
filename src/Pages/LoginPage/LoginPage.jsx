@@ -7,11 +7,11 @@ const LoginPage = () => {
 
     return (
 
-      <div>
+      <div className=''>
         
 
-        <section className="bg-white lg:w-3/4 mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 my-16">
+        <section className="my-16 lg:w-3/4 mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
                     
                     
                 <div className="flex items-center justify-center bg-white px-4 py-10 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
