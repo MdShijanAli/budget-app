@@ -8,6 +8,8 @@ import Main from "../Layout/Main";
 import HomePage from "../Pages/HomePage/HomePage";
 import RegisterPage from "../Pages/RegisterPage/RegisterPage";
 import ResetPage from "../Pages/ResetPage/ResetPage";
+import DashboardLayout from "../Pages/Dashboard/DashboardLayout";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const routes = createBrowserRouter([
 
@@ -44,6 +46,16 @@ export const routes = createBrowserRouter([
         ]
     },
 
+    {
+        path: '/dashboard',
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard/>
+           }
+        ]
+    }
     
 
 ]) 

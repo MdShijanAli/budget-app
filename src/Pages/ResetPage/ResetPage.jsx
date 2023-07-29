@@ -11,7 +11,7 @@ const ResetPage = () => {
       <div className='h-screen bg-[#EEF2FF]'>
           
                     <form  className="card ">
-                        <div className="card-body  bg-white md:w-1/3 mx-auto shadow-xl my-52 rounded-3xl">
+                        <div className="card-body  bg-white md:w-1/3 w-3/4 mx-auto shadow-xl my-52 rounded-3xl">
                             <h2 className="card-title">Reset Password!!!</h2>
                             <input
                                 
