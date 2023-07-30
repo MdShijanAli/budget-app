@@ -10,6 +10,8 @@ import RegisterPage from "../Pages/RegisterPage/RegisterPage";
 import ResetPage from "../Pages/ResetPage/ResetPage";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import AddIncome from "../Pages/Dashboard/AddIncome";
+import AddExpense from "../Pages/Dashboard/AddExpense";
 
 export const routes = createBrowserRouter([
 
@@ -53,7 +55,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard/>
-           }
+            },
+            {
+                path: 'add-income',
+                element: <AddIncome/>
+            },
+            {
+                path: 'add-expense',
+                element: <AddExpense/>
+            }
         ]
     }
     
