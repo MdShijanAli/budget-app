@@ -128,9 +128,11 @@ const RegisterPage = () => {
 
 
                         <div className="mt-8">
+                            <Link to="/dashboard">
                             <button className="focus:ring-2 focus:ring-offset-2 focus:ring-[#00b22d] text-sm font-semibold leading-none text-white focus:outline-none bg-[#00b22d] border rounded hover:bg-[#00b22d] py-4 w-full">
                                 Create my account
                             </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="xl:w-1/2 lg:pl-8 md:pl-8 md:w-1/2 w-full mx-auto md:mt-0 mt-6">

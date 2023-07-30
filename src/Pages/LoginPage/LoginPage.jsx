@@ -78,9 +78,11 @@ const LoginPage = () => {
                                 </div>
 
                                 <div>
-                                    <button type="submit" className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-[#00b22d] border border-transparent rounded-md focus:outline-none hover:bg-[#00b22d] focus:bg-[#00b22d">
+                                        <Link to="/dashboard">
+                                        <button type="submit" className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-[#00b22d] border border-transparent rounded-md focus:outline-none hover:bg-[#00b22d] focus:bg-[#00b22d">
                                         Sign In
                                         </button>
+                                        </Link>
                                         
                                 </div>
                             </div>
