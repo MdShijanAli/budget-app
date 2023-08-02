@@ -14,7 +14,8 @@ const AddExpense = () => {
 
             <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 justify-center mt-10">
                
-                    <div className='flex justify-between items-center lg:col-span-1 md:col-span-1 p-5 bg-white rounded-lg shadow-lg'>
+                <label htmlFor="add_expense_complete_modal">
+                <div className='flex justify-between items-center lg:col-span-1 md:col-span-1 p-5 bg-white rounded-lg shadow-lg'>
                             <div class=" flex justify-start gap-5 items-center  ">
 
                             
@@ -46,6 +47,7 @@ const AddExpense = () => {
                                 </div>
                         
                     </div>
+                   </label>
 
 
                     <div className='flex justify-between items-center lg:col-span-1 md:col-span-1 p-5 bg-white rounded-lg shadow-lg'>
@@ -272,6 +274,104 @@ const AddExpense = () => {
           <label className="modal-backdrop" htmlFor="add_expense_modal">Close</label>
           </div>
                    
+            
+
+
+            {/* add-expense-comlete-modal */}
+
+            <input type="checkbox" id="add_expense_complete_modal" className="modal-toggle" />
+        <div className='modal'>
+                        <div className="modal-box mx-auto">
+
+                            <form >
+                             <div className='text-center'>
+                                <svg className='mx-auto' xmlns="http://www.w3.org/2000/svg" width="46" height="45" viewBox="0 0 46 45" fill="none">
+                                    <circle cx="22.9572" cy="22.3567" r="22.3536" fill="#6665DD"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21.2207 11.3601C21.1287 11.4213 20.8761 11.7504 20.5471 12.2378C20.2577 12.6666 19.9943 13.0156 19.9619 13.0132C19.9294 13.0109 19.5459 12.772 19.1096 12.4823C18.3718 11.9925 18.3017 11.9556 18.1085 11.9556C17.8714 11.9556 17.6618 12.0726 17.5205 12.2838C17.4713 12.3572 17.331 12.8267 17.2012 13.3522L16.9697 14.2897L16.2558 13.8161C15.5968 13.3789 15.526 13.3425 15.3344 13.3425C15.0977 13.3425 14.888 13.4596 14.7467 13.6707C14.6975 13.7441 14.5572 14.2136 14.4274 14.7391L14.1959 15.6766L13.482 15.203C12.823 14.7658 12.7522 14.7294 12.5606 14.7294C12.318 14.7294 12.1158 14.846 11.9573 15.0772C11.861 15.2177 11.8557 15.2557 11.8786 15.6396C11.9114 16.1912 12.1314 17.9059 12.2959 18.893C13.0468 23.3974 14.2043 26.9874 15.7117 29.4871C16.4876 30.7736 17.1377 31.4053 18.0687 31.7771C18.6403 32.0053 18.8573 32.0431 19.5998 32.0437C20.3958 32.0443 20.6623 31.9801 21.1361 31.6739C22.5798 30.7408 22.6445 28.6548 21.2601 27.6765C20.8096 27.3582 20.4721 27.2486 19.8327 27.213C19.411 27.1895 19.2518 27.1632 19.1392 27.0985C18.9791 27.0066 18.7974 26.6976 18.799 26.5199C18.8005 26.3425 18.9561 26.0494 19.0929 25.9665C19.1625 25.9243 20.4149 25.4314 21.876 24.8712C24.748 23.7701 24.7612 23.7637 24.8685 23.4056C24.9333 23.1892 24.9401 23.2141 24.502 22.0636C23.4983 19.4281 22.6291 15.4958 22.2842 12.0302C22.2513 11.6994 22.1518 11.5156 21.922 11.3607C21.724 11.2273 21.4208 11.2271 21.2207 11.3601ZM28.8498 12.7476C28.7693 12.8018 28.6592 12.912 28.605 12.9924C28.5164 13.1238 28.5064 13.19 28.5064 13.6464V14.1541L28.2309 14.2897C27.9218 14.4419 27.5778 14.7572 27.4118 15.0403C27.0502 15.6574 27.0731 16.5439 27.4666 17.1572C27.743 17.5879 28.0461 17.7908 28.9832 18.1728C29.2573 18.2845 29.5264 18.4049 29.5812 18.4404C29.8346 18.6044 29.9256 19.004 29.7682 19.2621C29.5371 19.6411 28.7578 19.6807 28.2611 19.3385C28.0751 19.2105 27.9977 19.1836 27.815 19.1836C27.3014 19.1836 26.9782 19.6816 27.1793 20.163C27.2916 20.4317 27.9217 20.8361 28.3376 20.9063L28.5064 20.9348V21.4014C28.5064 21.8148 28.5176 21.8845 28.605 22.0141C28.9157 22.4753 29.484 22.4753 29.7948 22.0141C29.8835 21.8826 29.8933 21.8166 29.8933 21.3574V20.8469L30.1209 20.7412C31.2157 20.2325 31.5914 18.855 30.9138 17.8341C30.6176 17.3879 30.3899 17.2362 29.3966 16.8235C29.0877 16.6951 28.798 16.5567 28.7529 16.5158C28.5546 16.3364 28.4913 16.0084 28.6105 15.7779C28.7453 15.5172 29.2463 15.3699 29.681 15.4631C29.8118 15.4912 30.0122 15.5809 30.1387 15.668C30.3246 15.7961 30.4021 15.823 30.5848 15.823C31.0983 15.823 31.4216 15.325 31.2204 14.8436C31.1082 14.5749 30.478 14.1705 30.0621 14.1002L29.8933 14.0717V13.6052C29.8933 13.1917 29.8821 13.122 29.7948 12.9924C29.5648 12.6511 29.1518 12.5441 28.8498 12.7476ZM19.7965 17.6008C20.0046 17.7057 20.1858 17.9836 20.184 18.1951C20.1826 18.3606 20.0329 18.6575 19.9106 18.7376C19.7573 18.8381 16.2524 20.2374 16.0867 20.2642C15.7708 20.3155 15.4143 20.0334 15.3474 19.6793C15.3155 19.5104 15.422 19.1988 15.5518 19.0813C15.666 18.978 19.3488 17.5036 19.4931 17.5034C19.5536 17.5033 19.6902 17.5471 19.7965 17.6008ZM20.4766 20.3622C20.6747 20.4522 20.8179 20.6427 20.8618 20.8749C20.8961 21.0567 20.7786 21.3739 20.635 21.4868C20.4931 21.5985 16.8519 23.0509 16.7139 23.0509C16.6546 23.0509 16.519 23.0071 16.4126 22.9534C16.2045 22.8485 16.0233 22.5706 16.0252 22.3591C16.0266 22.1927 16.1765 21.8965 16.3003 21.8154C16.4816 21.6966 20.0677 20.2777 20.1849 20.2784C20.2445 20.2787 20.3758 20.3165 20.4766 20.3622ZM30.3701 23.0782C30.231 23.1347 25.4117 24.9802 23.9339 25.5429C22.2892 26.1691 22.1786 26.2281 22.1786 26.4783C22.1786 26.5802 22.2449 26.6737 22.4973 26.9277C23.0085 27.4422 23.3439 28.0219 23.5267 28.7069C23.6576 29.1972 23.6578 30.0788 23.5271 30.5706C23.2563 31.5904 22.5848 32.4624 21.693 32.9522C21.3889 33.1193 21.3187 33.2171 21.3976 33.3644C21.4362 33.4365 21.4878 33.4528 21.6779 33.4528C21.9973 33.4528 22.5143 33.3487 22.8162 33.2236C26.0889 31.8679 30.6795 29.9855 30.7131 29.9855C30.7376 29.9855 30.8703 29.9299 31.0081 29.862C31.1458 29.794 31.6389 29.5844 32.1037 29.396C32.8816 29.0809 32.9662 29.0359 33.1663 28.8308C33.765 28.2172 34.0872 27.3122 34.0429 26.3688C33.9601 24.6067 32.5368 23.1364 30.8484 23.0684C30.6211 23.0593 30.4058 23.0637 30.3701 23.0782Z" fill="white"/>
+                                </svg>
+                                <h3 className='text-[#485470] font-semibold'>Utilities Bills</h3>
+                        </div>
+                         
+                        <hr className='my-5'/>
+                                
+              
+
+                                 
+
+
+
+
+                                <div className="mb-4">
+                                    <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="money">
+                                       Price
+                                    </label>
+                                    <input
+                                        required
+                                        id="money"
+                                        name="money"
+                                        type="number"
+                                step="0.01"
+                                placeholder='$230'
+                                        className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                                  
+                                    />
+                                 </div>
+              
+                                 <div className="mb-4">
+                                    <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="date">
+                                        Due Date
+                                    </label>
+                                    <input
+                                        required
+                                        id="date"
+                                        name="date"
+                                type="text"
+                                placeholder='Due Date:     Tue, 4 Aug 2022'
+                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                                    
+                                    />
+                                </div>
+
+
+
+                                <div className="mb-4">
+                                            <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="date">
+                                                Time Left
+                            </label>
+                            
+                            <input
+                                        required
+                                        id="date"
+                                        name="date"
+                                type="text"
+                                placeholder='Time Left:     00:18:46:35'
+                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                                    
+                                    />
+
+                                              
+                
+                                     </div>
+                                
+
+
+
+                        <div className="modal-action">
+                       
+                            <button type='submit' htmlFor="fund-modal" className="btn mx-auto my-5 bg-[#00D88A] rounded-3xl px-10 text-white hover:bg-[#00b22d]">
+                            <svg className='mr-2' xmlns="http://www.w3.org/2000/svg" width="19" height="14" viewBox="0 0 19 14" fill="none">
+<path d="M17.64 1.53809L6.64001 12.5381L1.64001 7.53809" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                                Mark as Complete</button>
+                                </div>
+                            </form>
+
+
+
+
+          </div>
+          <label className="modal-backdrop" htmlFor="add_expense_complete_modal">Close</label>
+          </div>
        
 
 

@@ -59,6 +59,13 @@ const Dashboard = () => {
 
             </div>
 
+            
+            <div className='mt-20'>
+                <div>
+                    <h1 className='text-2xl font-semibold '>Payment Progress</h1>
+                    <progress className="progress progress-error" value="70" max="100"></progress>
+                </div>
+            </div>
 
               
 
