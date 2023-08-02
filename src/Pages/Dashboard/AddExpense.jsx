@@ -305,13 +305,14 @@ const AddExpense = () => {
                                     <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="money">
                                        Price
                                     </label>
-                                    <input
+                            <input
+                                readOnly
                                         required
                                         id="money"
                                         name="money"
                                         type="number"
                                 step="0.01"
-                                placeholder='$230'
+                                placeholder='$530'
                                         className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                                   
                                     />
@@ -322,7 +323,9 @@ const AddExpense = () => {
                                         Due Date
                                     </label>
                                     <input
-                                        required
+                                required
+                                readOnly
+                                
                                         id="date"
                                         name="date"
                                 type="text"
@@ -340,7 +343,8 @@ const AddExpense = () => {
                             </label>
                             
                             <input
-                                        required
+                                required
+                                readOnly
                                         id="date"
                                         name="date"
                                 type="text"
