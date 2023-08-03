@@ -1,7 +1,7 @@
 import React from 'react';
 import { BiMoney } from 'react-icons/bi';
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-
 
 
 const Dashboard = () => {
@@ -12,69 +12,98 @@ const Dashboard = () => {
 
     return (
         <div className='mx-2 md:mx-10'>
-            <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 justify-center mt-10">
-                <Link to='/dashboard/total-earning'>
-                    <div class="lg:col-span-1 md:col-span-1 p-5 flex justify-start gap-5 items-center  bg-white rounded-lg shadow-lg">
+
+
+            <div className=' mt-10'>
+                    <div className='flex justify-between'>
+                        <h1 className='font-semibold text-xl'>Current Pay Period</h1>
+                        <Link>
+                                <div className='flex items-center gap-2'>
+                                                    <h1 className='font-semibold text-xl'>View Next Pay Period </h1>
+                                                    <HiOutlineArrowNarrowRight className='w-6 h-6'></HiOutlineArrowNarrowRight>
+                                            </div>
+                        </Link>
+                    
+                    </div>
+                    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 justify-center mt-2">
+                        
+                            <div class="lg:col-span-1 md:col-span-1 p-5 flex justify-start gap-5 items-center  bg-white rounded-lg shadow-lg">
+
+                            
+                                
+                                <div class="bg-[#E5F8ED] rounded-full p-3">
+                                    <BiMoney className="w-6 h-6 text-green-500"></BiMoney>
+
+                                </div>
+
+                                <div>
+                                    <p class="text-gray-700">Income</p>
+                                    <div class="text-lg font-semibold text-gray-800">$10000</div>
+                                </div>
+                                
+                            </div>
+                    
+                            <div class=" lg:col-span-1 md:col-span-1 p-5 flex justify-start gap-5 items-center  bg-white rounded-lg shadow-lg">
+
+                                <div class="bg-[#FEE8E2]  rounded-full p-3">
+                                    <BiMoney className="w-6 h-6 text-red-500"></BiMoney>
+                                </div>
+
+                                <div class="">
+                                    <p class="text-gray-700">Expense</p>
+                                    <div class="text-lg font-semibold text-gray-800">$5000</div>
+                                </div>
+                            </div>
+                    
+
+                        
+                        <div class=" lg:col-span-1 md:col-span-1 p-5 flex justify-start gap-5 items-center  bg-white rounded-lg shadow-lg">
+
+                            <div class="bg-[#E5F8ED] rounded-full p-3">
+                                <BiMoney className="w-6 h-6 text-green-500"></BiMoney>
+                            </div>
+
+                            <div class="">
+                                <p class="text-gray-700">Available income This Period</p>
+                                <div class="text-lg font-semibold text-gray-800">$5000</div>
+                            </div>
+                        </div>
 
                     
-                        
-                        <div class="bg-[#E5F8ED] rounded-full p-3">
-                            <BiMoney className="w-6 h-6 text-green-500"></BiMoney>
 
-                        </div>
-
-                        <div>
-                            <p class="text-gray-700">Income</p>
-                            <div class="text-lg font-semibold text-gray-800">$10000</div>
-                        </div>
-                        
                     </div>
-                </Link>
-                <Link to="/dashboard/total-cost">
-                    <div class=" lg:col-span-1 md:col-span-1 p-5 flex justify-start gap-5 items-center  bg-white rounded-lg shadow-lg">
-
-                        <div class="bg-[#FEE8E2]  rounded-full p-3">
-                            <BiMoney className="w-6 h-6 text-red-500"></BiMoney>
-                        </div>
-
-                        <div class="">
-                            <p class="text-gray-700">Expense</p>
-                            <div class="text-lg font-semibold text-gray-800">$5000</div>
-                        </div>
-                    </div>
-                </Link>
-
-                
-                <div class=" lg:col-span-1 md:col-span-1 p-5 flex justify-start gap-5 items-center  bg-white rounded-lg shadow-lg">
-
-                    <div class="bg-[#E5F8ED] rounded-full p-3">
-                        <BiMoney className="w-6 h-6 text-green-500"></BiMoney>
-                    </div>
-
-                    <div class="">
-                        <p class="text-gray-700">Saved</p>
-                        <div class="text-lg font-semibold text-gray-800">$5000</div>
-                    </div>
-                </div>
-
             </div>
 
             
             <div className='mt-20'>
                 <div>
-                    <h1 className='text-2xl font-semibold '>Payment Progress</h1>
+                    <div className='flex justify-between'>
+                        <h1 className='text-2xl font-semibold '>Payment Progress</h1>
+                        <h1 className='text-xl font-semibold '>$250 of $5000</h1>  
+                    </div>
                     <progress className="progress progress-error" value="70" max="100"></progress>
                 </div>
             </div>
 
               
 
-            <div>
+            <div className=' mt-20'>
 
-                <h1 className='text-2xl font-semibold mt-20'>All Transaction</h1>
+            <div className='flex justify-between'>
+                        <h1 className='font-semibold text-xl'>Current Pay Period</h1>
+                        <Link>
+                                <div className='flex items-center gap-2'>
+                                                    <h1 className='font-semibold text-xl'>View Next Pay Period </h1>
+                                                    <HiOutlineArrowNarrowRight className='w-6 h-6'></HiOutlineArrowNarrowRight>
+                                            </div>
+                        </Link>
+                    
+                    </div>
+
+                <h1 className='text-2xl font-semibold my-10'>All Transaction in This Pay Period</h1>
                 
 
-            <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 justify-center mt-10">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 justify-center">
                
                     <div className='flex justify-between items-center lg:col-span-1 md:col-span-1 p-5 bg-white rounded-lg shadow-lg'>
                             <div class=" flex justify-start gap-5 items-center  ">
@@ -182,7 +211,12 @@ const Dashboard = () => {
             </div>
            </div>
 
-
+          
+            <div className='my-20 block text-center'>
+                <Link>
+                    <button className='btn text-white hover:bg-[#00b22d] bg-[#00b22d] rounded-3xl'>Add Expense This Period</button>
+                </Link>
+            </div>
             
 
 

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { FaUserCircle } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
+import Header from '../../Components/ErrorPage/Header';
 
 
 const DashboardLayout = () => {
@@ -11,14 +12,18 @@ const DashboardLayout = () => {
 
     return (
         <div>
+
+                 <Header/>
             
-            <div className="drawer lg:drawer-open drawer-mobile">
+            <div className="drawer md:drawer-open">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content bg-[#F2F2F2]">
                     <Outlet></Outlet>
 
+                    
+
                 </div>
-                <div className="drawer-side bg-white">
+                <div className="drawer-side bg-white mt-10 md:mt-0">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
 
 
