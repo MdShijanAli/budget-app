@@ -100,14 +100,14 @@ const Dashboard = () => {
                     
                     </div>
 
-                <h1 className='text-2xl font-semibold my-10'>All Transaction in This Pay Period</h1>
+                <h1 className='text-2xl font-semibold my-10'>Bills Due This Pay Period</h1>
                 
 
             <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 justify-center">
                
                    <div className='p-5 bg-white rounded-lg shadow-lg'>
                     <div className='flex justify-between items-center lg:col-span-1 md:col-span-1 '>
-                            <div class=" flex justify-start gap-5 items-center  ">
+                            <div class=" flex  gap-5  items-center ">
 
                             
                                 
@@ -121,32 +121,36 @@ const Dashboard = () => {
 
                                 <div>
                                     <p class="text-gray-700 font-semibold">Utilities Bills</p>
-                                        <div class="flex gap-2 justify-center items-center text-lg font-semibold text-gray-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
-                                                <path d="M1.51685 4.22632H10.4542" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M8.00806 0.511963V2.16609" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M3.95801 0.511963V2.16609" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M8.10828 1.30396H3.85265C2.37896 1.30396 1.46167 2.12602 1.46167 3.63479V8.14607C1.46167 9.67489 2.37896 10.512 3.85265 10.512H8.09325C9.56693 10.512 10.4842 9.68994 10.4842 8.18116V3.60974C10.4993 2.12603 9.58197 1.30396 8.10828 1.30396Z" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            <span className='text-xs'>24-MAR-2020</span>
+                                        <div class="flex gap-2 items-center text-lg font-semibold text-gray-800 border border-[#DADADA] px-2 py-1 rounded">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                    <path d="M11.4648 5.85791C11.4648 6.84681 11.1716 7.81352 10.6222 8.63577C10.0728 9.45801 9.29186 10.0989 8.37823 10.4773C7.4646 10.8557 6.45927 10.9548 5.48937 10.7618C4.51946 10.5689 3.62854 10.0927 2.92928 9.39346C2.23002 8.6942 1.75381 7.80329 1.56089 6.83338C1.36796 5.86348 1.46698 4.85814 1.84542 3.94451C2.22386 3.03088 2.86472 2.25 3.68697 1.70059C4.50921 1.15118 5.47591 0.85791 6.46481 0.85791C7.7909 0.85791 9.06267 1.38471 10.0003 2.32239C10.938 3.26007 11.4648 4.53183 11.4648 5.85791V5.85791Z" stroke="#7D8CAC" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.31899 7.4472L6.28116 6.23098V3.60938" stroke="#7D8CAC" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            <span className='text-xs'>02 Days Left</span>
                                         </div>
                                 </div>
                         </div>
                         
                        
-                                    
-                                <div>
-                                    <h2 className='text-xl font-semibold'>-$530</h2>   
-                        </div>
+                        <div>
+                                    <div>
+                                         <h2 className='text-xl font-semibold text-center'>-$530</h2>   
+                                     </div>
+                            
+                                    <Link>
+                                        <div className='text-end block mt-2'>
+                                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
+                                        </div>
+                                    </Link>
                         
                         
+                        </div>     
+                            
                         
                         </div>
-                        <Link>
-                        <div className='text-end block mt-2'>
-                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
-                        </div>
-                        </Link>
+
+                       
+                       
                     </div>
 
                     <div className=' p-5 bg-white rounded-lg shadow-lg'>
@@ -164,29 +168,33 @@ const Dashboard = () => {
                                 </div>
 
                                 <div>
-                                    <p class="text-gray-700 font-semibold">Insurance Bill</p>
-                                        <div class="flex gap-2 justify-center items-center text-lg font-semibold text-gray-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
-                                                <path d="M1.51685 4.22632H10.4542" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M8.00806 0.511963V2.16609" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M3.95801 0.511963V2.16609" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M8.10828 1.30396H3.85265C2.37896 1.30396 1.46167 2.12602 1.46167 3.63479V8.14607C1.46167 9.67489 2.37896 10.512 3.85265 10.512H8.09325C9.56693 10.512 10.4842 9.68994 10.4842 8.18116V3.60974C10.4993 2.12603 9.58197 1.30396 8.10828 1.30396Z" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            <span className='text-xs'>24-MAR-2020</span>
+                                    <p class="text-gray-700 font-semibold">Insurence Bills</p>
+                                        <div class="flex gap-2 items-center text-lg font-semibold text-gray-800 border border-[#DADADA] px-2 py-1 rounded">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                    <path d="M11.4648 5.85791C11.4648 6.84681 11.1716 7.81352 10.6222 8.63577C10.0728 9.45801 9.29186 10.0989 8.37823 10.4773C7.4646 10.8557 6.45927 10.9548 5.48937 10.7618C4.51946 10.5689 3.62854 10.0927 2.92928 9.39346C2.23002 8.6942 1.75381 7.80329 1.56089 6.83338C1.36796 5.86348 1.46698 4.85814 1.84542 3.94451C2.22386 3.03088 2.86472 2.25 3.68697 1.70059C4.50921 1.15118 5.47591 0.85791 6.46481 0.85791C7.7909 0.85791 9.06267 1.38471 10.0003 2.32239C10.938 3.26007 11.4648 4.53183 11.4648 5.85791V5.85791Z" stroke="#7D8CAC" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.31899 7.4472L6.28116 6.23098V3.60938" stroke="#7D8CAC" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            <span className='text-xs'>02 Days Left</span>
                                         </div>
                                 </div>
                                 </div>
                                     
                                 <div>
-                                    <h2 className='text-xl font-semibold'>-$50</h2>   
-                                </div>
+                                    <div>
+                                         <h2 className='text-xl font-semibold text-center'>-$530</h2>   
+                                     </div>
+                            
+                                    <Link>
+                                        <div className='text-end block mt-2'>
+                                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
+                                        </div>
+                                    </Link>
+                        
+                        
+                                 </div>   
                         
                         </div>
-                        <Link>
-                        <div className='text-end block mt-2'>
-                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
-                        </div>
-                        </Link>
+                   
                     </div>
 
 
@@ -206,28 +214,32 @@ const Dashboard = () => {
 
                                 <div>
                                     <p class="text-gray-700 font-semibold">House Rent</p>
-                                        <div class="flex gap-2 justify-center items-center text-lg font-semibold text-gray-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
-                                                <path d="M1.51685 4.22632H10.4542" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M8.00806 0.511963V2.16609" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M3.95801 0.511963V2.16609" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M8.10828 1.30396H3.85265C2.37896 1.30396 1.46167 2.12602 1.46167 3.63479V8.14607C1.46167 9.67489 2.37896 10.512 3.85265 10.512H8.09325C9.56693 10.512 10.4842 9.68994 10.4842 8.18116V3.60974C10.4993 2.12603 9.58197 1.30396 8.10828 1.30396Z" stroke="#7D8CAC" stroke-width="0.942497" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            <span className='text-xs'>24-MAR-2020</span>
+                                        <div class="flex gap-2 items-center text-lg font-semibold text-gray-800 border border-[#DADADA] px-2 py-1 rounded">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                    <path d="M11.4648 5.85791C11.4648 6.84681 11.1716 7.81352 10.6222 8.63577C10.0728 9.45801 9.29186 10.0989 8.37823 10.4773C7.4646 10.8557 6.45927 10.9548 5.48937 10.7618C4.51946 10.5689 3.62854 10.0927 2.92928 9.39346C2.23002 8.6942 1.75381 7.80329 1.56089 6.83338C1.36796 5.86348 1.46698 4.85814 1.84542 3.94451C2.22386 3.03088 2.86472 2.25 3.68697 1.70059C4.50921 1.15118 5.47591 0.85791 6.46481 0.85791C7.7909 0.85791 9.06267 1.38471 10.0003 2.32239C10.938 3.26007 11.4648 4.53183 11.4648 5.85791V5.85791Z" stroke="#7D8CAC" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.31899 7.4472L6.28116 6.23098V3.60938" stroke="#7D8CAC" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            <span className='text-xs'>02 Days Left</span>
                                         </div>
                                 </div>
                                 </div>
                                     
-                                <div>
-                                    <h2 className='text-xl font-semibold'>-$250</h2>   
-                                </div>
+                                <div className=''>
+                                    <div>
+                                         <h2 className='text-xl font-semibold text-center'>-$530</h2>   
+                                     </div>
+                            
+                                    <Link>
+                                        <div className='text-end block mt-2'>
+                                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
+                                        </div>
+                                    </Link>
+                        
+                        
+                              </div>   
                         
                         </div>
-                        <Link>
-                        <div className='text-end block mt-2'>
-                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
-                        </div>
-                        </Link>
+                       
                     </div>
                 
                 
