@@ -139,7 +139,12 @@ const Dashboard = () => {
                             
                                     <Link>
                                         <div className='text-end block mt-2'>
-                                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
+                                        <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 19 14" fill="none">
+                                                       <path d="M17.64 1.53809L6.64001 12.5381L1.64001 7.53809" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                            Mark as Paid
+                                        </button>
                                         </div>
                                     </Link>
                         
@@ -186,7 +191,11 @@ const Dashboard = () => {
                             
                                     <Link>
                                         <div className='text-end block mt-2'>
-                                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
+                                        <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 19 14" fill="none">
+                                                       <path d="M17.64 1.53809L6.64001 12.5381L1.64001 7.53809" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                            Mark as Paid</button>
                                         </div>
                                     </Link>
                         
@@ -231,7 +240,12 @@ const Dashboard = () => {
                             
                                     <Link>
                                         <div className='text-end block mt-2'>
-                                            <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>Mark as Paid</button>
+                                        <button className='font-semibold btn bg-[#00b22d] btn-sm text-white text-xs hover:bg-[#00b22d] rounded-3xl'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 19 14" fill="none">
+                                                       <path d="M17.64 1.53809L6.64001 12.5381L1.64001 7.53809" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                            Mark as Paid
+                                        </button>
                                         </div>
                                     </Link>
                         

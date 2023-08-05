@@ -16,7 +16,7 @@ const AddIncome = () => {
       <div className='mx-2 md:mx-10'>
 
             
-<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 justify-center mt-10">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 justify-center mt-10">
                
                <div className='flex justify-between items-center lg:col-span-1 md:col-span-1 p-5 bg-white rounded-lg shadow-lg'>
                        <div class=" flex justify-start gap-5 items-center  ">
@@ -164,42 +164,41 @@ const AddIncome = () => {
 
 
                                     <label className="block text-gray-700 dark:text-white font-bold mb-2" htmlFor="category">
-                                        Select Category
+                                        Pay Type
                                     </label>
 
-                                    <select
-                                        required
-                                        id="category"
-                                        name="category"
-                                        className="block appearance-none w-full dark:text-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                               
-                                    >
+                                       <select className="select select-success w-full ">
+                                                      
+
+                                                         <option value="Weekly">Weekly</option>
+                                                          <option value="Bi-Weekly">Bi-Weekly</option>
+                                                          <option value="Others">Others</option>
+                                        </select>
                                 
-                                            <option value="option1">Option-1</option>
-                                            <option value="option-2">Option-2</option>
-                                            <option value="option-3">Option-3</option>
                                       
 
-                                    </select>
                                 </div>
-                                <div className="mb-4">
-                                    <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="money">
-                                        Money
-                                    </label>
-                                    <input
-                                        required
-                                        id="money"
-                                        name="money"
-                                        type="number"
-                                        step="0.01"
-                                        className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
-                                  
-                                    />
-                                </div>
+                               
                                 <div className="mb-4">
                                     <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="date">
-                                        Date
+                                        Select Pay Period
                                     </label>
+                            
+                            <div className='flex justify-between items-center gap-5 mb-3 bg-[#ddd] p-2'>
+                                <div className='flex items-center gap-2'>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                                      <circle cx="6.76043" cy="6.48456" r="6.26043" fill="#00E6BD"/>
+                                   </svg>
+                                    <h3>Pay Period 1 ( 1-15 )</h3>
+                                </div>
+                                <div className='flex items-center gap-2'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">    
+                                         <circle cx="6.60028" cy="6.48431" r="6.26043" fill="#FFAF02"/>
+                                    </svg>
+                                    <h3>Pay Period 2 ( 16-31 )</h3>
+                                </div>
+                                    </div>
+                             
                                     <input
                                         required
                                         id="date"
@@ -208,33 +207,24 @@ const AddIncome = () => {
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                                     
                                     />
-                                </div>
-                                <div className="mb-4">
-                                    <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="time">
-                                        Time
+                               </div>
+                        
+                        <div className="mb-4">
+                                    <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="money">
+                                       Income
                                     </label>
-                                    <input
-                                        required
-                                        id="time"
-                                        name="time"
-                                        type="time"
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
-                                 
-                                    />
+                                    <label className="input-group">
+                                         <span>$</span>
+                                         <input type="number" placeholder="15,000" className="input input-bordered input-success w-full" />
+                                   </label>
                                 </div>
+                                
 
                                 <div className="mb-4">
                                     <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="notes">
                                         Notes
                                     </label>
-                                    <input
-                                        required
-                                        id="notes"
-                                        name="notes"
-                                        type="text"
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
-                                    
-                                    />
+                                    <input type="text" placeholder="Type here" className="input input-bordered input-success w-full" />
                                 </div>
 
 

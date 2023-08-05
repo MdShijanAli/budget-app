@@ -165,13 +165,7 @@ const AddExpense = () => {
                                         Choose Category
                                     </label>
 
-                                    <select
-                                        required
-                                        id="category"
-                                        name="category"
-                                        className="block appearance-none w-full dark:text-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                               
-                                    >
+                                    <select className="select select-success w-full ">
                                 
                                             <option value="option1">Utilities Bills</option>
                                             <option value="option-2">Insurance Bill</option>
@@ -189,15 +183,7 @@ const AddExpense = () => {
                                                 Name of Expense
                                             </label>
 
-                                            <input
-                                                required
-                                                id="expense"
-                                                name="expense"
-                                                type="text"
-                                                step="0.01"
-                                                className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
-
-                                            />
+                                            <input type="text" placeholder="Type here" className="input input-bordered input-success w-full" />
 
 
                                     </div>
@@ -209,15 +195,10 @@ const AddExpense = () => {
                                     <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="money">
                                         Total Amount
                                     </label>
-                                    <input
-                                        required
-                                        id="money"
-                                        name="money"
-                                        type="number"
-                                        step="0.01"
-                                        className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
-                                  
-                                    />
+                                    <label className="input-group">
+                                         <span>$</span>
+                                         <input type="number" placeholder="15,000" className="input input-bordered input-success w-full" />
+                                   </label>
                                  </div>
               
                                  <div className="mb-4">
@@ -241,13 +222,7 @@ const AddExpense = () => {
                                                 Pay Time
                                             </label>
 
-                                              <select
-                                                  required
-                                                  id="date"
-                                                  name="date"
-                                                  className="block appearance-none w-full dark:text-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                                        
-                                              >
+                                            <select className="select select-success w-full ">
                                           
                                                       <option value="Once in a Week">Once in a Week</option>
                                                       <option value="Once in a Month">Once in a Month</option>
