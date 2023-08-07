@@ -58,16 +58,16 @@ const DashboardLayout = () => {
                             </li>
 
                             <li className='text-xl active:text-red'>
-                                <Link className='text-white hover:text-[#00b22d] active:text-red focus:text-red' to='/dashboard/add-income'>
+                                <Link className='text-white hover:text-[#00b22d] active:text-red' to='/dashboard/add-income'>
                                       <GiReceiveMoney></GiReceiveMoney>
-                                       <span className='ml-2 focus:text-red'> Add Income</span>
+                                       <span className='ml-2'> Add Income</span>
                                  </Link>
                              </li>
 
                             <li className='text-xl active:text-red'>
-                                     <Link className='text-white hover:text-[#00b22d] active:text-red focus:text-red' to='/dashboard/add-expense'>
+                                     <Link className='text-white hover:text-[#00b22d] active:text-red' to='/dashboard/add-expense'>
                                           <GiPayMoney></GiPayMoney>
-                                          <span className='ml-2 focus:text-red'>Add Expense</span>
+                                          <span className='ml-2'>Add Expense</span>
                                      </Link>
                             </li>
 
