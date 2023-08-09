@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle,FaUsers} from 'react-icons/fa';
 import { BiSolidDashboard } from 'react-icons/bi';
 import { AiFillSetting } from 'react-icons/ai';
 import { GiPayMoney,GiReceiveMoney } from 'react-icons/gi';
@@ -20,8 +20,9 @@ const DashboardLayout = () => {
             
             <div className="drawer md:drawer-open">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content bg-[#F2F2F2]">
-                    <Outlet></Outlet>
+                <div className="drawer-content bg-[#F2F2F2] ">
+                   
+                    <Outlet ></Outlet>
 
                     
 
@@ -68,6 +69,13 @@ const DashboardLayout = () => {
                                      <Link className='text-white hover:text-[#00b22d] active:text-red' to='/dashboard/add-expense'>
                                           <GiPayMoney></GiPayMoney>
                                           <span className='ml-2'>Add Expense</span>
+                                     </Link>
+                            </li>
+
+                            <li className='text-xl active:text-red'>
+                                     <Link className='text-white hover:text-[#00b22d] active:text-red' to='/dashboard/users'>
+                                          <FaUsers></FaUsers>
+                                          <span className='ml-2'>All User</span>
                                      </Link>
                             </li>
 
