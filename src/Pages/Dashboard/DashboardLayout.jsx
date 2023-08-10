@@ -1,10 +1,10 @@
 import React from 'react';
-
+import './style.css';
 import { FaUserCircle,FaUsers} from 'react-icons/fa';
 import { BiSolidDashboard } from 'react-icons/bi';
 import { AiFillSetting } from 'react-icons/ai';
 import { GiPayMoney,GiReceiveMoney } from 'react-icons/gi';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import Header from '../../Components/ErrorPage/Header';
 
 
@@ -51,39 +51,39 @@ const DashboardLayout = () => {
 
 
 
-                            <li className='text-xl focus:text-red'>
-                            <Link className='text-white hover:text-[#00b22d]' to='/dashboard'>
+                            <li className='text-xl '>
+                            <NavLink className='text-white hover:text-[#00b22d]' to='/dashboard'>
                                        <BiSolidDashboard ></BiSolidDashboard>
                                        <span className='ml-2'> Dashboard</span>   
-                                 </Link>
-                            </li>
-
-                            <li className='text-xl active:text-red'>
-                                <Link className='text-white hover:text-[#00b22d] active:text-red' to='/dashboard/add-income'>
-                                      <GiReceiveMoney></GiReceiveMoney>
-                                       <span className='ml-2'> Add Income</span>
-                                 </Link>
-                             </li>
-
-                            <li className='text-xl active:text-red'>
-                                     <Link className='text-white hover:text-[#00b22d] active:text-red' to='/dashboard/add-expense'>
-                                          <GiPayMoney></GiPayMoney>
-                                          <span className='ml-2'>Add Expense</span>
-                                     </Link>
-                            </li>
-
-                            <li className='text-xl active:text-red'>
-                                     <Link className='text-white hover:text-[#00b22d] active:text-red' to='/dashboard/users'>
-                                          <FaUsers></FaUsers>
-                                          <span className='ml-2'>All User</span>
-                                     </Link>
+                                 </NavLink>
                             </li>
 
                             <li className='text-xl '>
-                                <Link className='text-white hover:text-[#00b22d]' to='/dashboard/settings'>
+                                <NavLink className='text-white hover:text-[#00b22d] ' to='/dashboard/add-income'>
+                                      <GiReceiveMoney></GiReceiveMoney>
+                                       <span className='ml-2'> Add Income</span>
+                                 </NavLink>
+                             </li>
+
+                            <li className='text-xl '>
+                                     <NavLink className='text-white hover:text-[#00b22d] ' to='/dashboard/add-expense'>
+                                          <GiPayMoney></GiPayMoney>
+                                          <span className='ml-2'>Add Expense</span>
+                                     </NavLink>
+                            </li>
+
+                            <li className='text-xl '>
+                                     <NavLink className='text-white hover:text-[#00b22d] ' to='/dashboard/users'>
+                                          <FaUsers></FaUsers>
+                                          <span className='ml-2'>All User</span>
+                                     </NavLink>
+                            </li>
+
+                            <li className='text-xl '>
+                                <NavLink className='text-white hover:text-[#00b22d]' to='/dashboard/settings'>
                                       <AiFillSetting></AiFillSetting>
                                       <span className='ml-2'>Settings</span>
-                                </Link>
+                                </NavLink>
                             </li>
 
 
@@ -91,14 +91,14 @@ const DashboardLayout = () => {
 
 
                         <div className='mx-5'>
-                            <Link  to='/login'>
+                            <NavLink  to='/login'>
                                 <button className='btn bg-[#00b22d] hover:bg-[#00b22d] w-full text-white'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-2">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                                     </svg>
                                     Logout
                                 </button>
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
 
