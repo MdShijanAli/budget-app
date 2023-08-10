@@ -4,6 +4,7 @@ import { ImBin } from 'react-icons/im';
 const Users = () => {
   return (
     <div className='mx-2 md:mx-10 my-10'>
+        <h1 className='text-center text-3xl my-5 font-bold'>All Users</h1>
       <div className="bg-white">
   <table className="table table-zebra">
     {/* head */}
@@ -12,6 +13,7 @@ const Users = () => {
         <th>Avater</th>
         <th>Name</th>
         <th>Address</th>
+        <th>Phone</th>
         <th>Role</th>
         <th>Action</th>
       </tr>
@@ -38,6 +40,9 @@ const Users = () => {
               </td>
               <td>
                 Bangladesh
+              </td>
+              <td>
+                +8801571261165
               </td>
               <td>Admin</td>
               <td>
@@ -67,6 +72,9 @@ const Users = () => {
               <td>
                 Bangladesh
               </td>
+              <td>
+                +8801571261165
+              </td>
               <td>Admin</td>
               <td>
                       <div className=''>
@@ -94,6 +102,9 @@ const Users = () => {
               </td>
               <td>
                 USA
+              </td>
+              <td>
+                +8801571261165
               </td>
               <td>Admin</td>
               <td>
@@ -123,6 +134,9 @@ const Users = () => {
               <td>
                 Bangladesh
               </td>
+              <td>
+                +8801571261165
+              </td>
               <td>Admin</td>
               <td>
                       <div className=''>
@@ -151,7 +165,11 @@ const Users = () => {
               <td>
                 Bangladesh
               </td>
+              <td>
+                +8801571261165
+              </td>
               <td>Admin</td>
+
               <td>
                       <div className=''>
                           <ImBin className='w-6 h-6 text-red-600'></ImBin>

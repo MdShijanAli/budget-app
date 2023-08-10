@@ -27,6 +27,22 @@ const Settings = () => {
                                     <input type="text" id='name' name='name' placeholder="Md Shijan Ali" className="input input-bordered input-success w-full" />
                             
                                </div>
+                                <div className="mb-4">
+                                    <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="email">
+                                        Email
+                                    </label>
+              
+                                    <input disabled type="email" id='email' name='email' placeholder="shijan135@gmail.com" className="input input-bordered input-success w-full" />
+                            
+                               </div>
+                                <div className="mb-4">
+                                    <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="phone">
+                                        Phone
+                                    </label>
+              
+                                    <input type="number" id='phone' name='phone' placeholder="+880 1571261165" className="input input-bordered input-success w-full" />
+                            
+                               </div>
                         
                         
 
