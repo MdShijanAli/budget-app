@@ -55,7 +55,7 @@ export const routes = createBrowserRouter([
         element: <DashboardLayout />,
         children: [
             {
-                path: 'dashboard',
+                path: '/dashboard',
                 element: <Dashboard/>
             },
             {
