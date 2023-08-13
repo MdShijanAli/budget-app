@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BiMoney } from 'react-icons/bi';
-
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
 
+    
+ 
 
+  
 
 
 
@@ -17,10 +19,12 @@ const Dashboard = () => {
 
             <div className=' mt-10'>
                     <div className='flex justify-between'>
-                        <h1 className='font-semibold text-xl'>Current Pay Period</h1>
+                    <Link>
+                    <h1 className='font-semibold text-xl hover:text-[#00b22d]'>Current Pay Period</h1>
+                    </Link>
                         <Link>
-                                <div className='flex items-center gap-2'>
-                                                    <h1 className='font-semibold text-xl'>View Next Pay Period </h1>
+                                <div className='flex items-center gap-2 hover:text-[#00b22d]'>
+                                                    <h1 className='font-semibold text-xl '>View Next Pay Period </h1>
                                                     <HiOutlineArrowNarrowRight className='w-6 h-6'></HiOutlineArrowNarrowRight>
                                             </div>
                         </Link>
@@ -91,9 +95,11 @@ const Dashboard = () => {
             <div className=' mt-20'>
 
             <div className='flex justify-between'>
-                        <h1 className='font-semibold text-xl'>Current Pay Period</h1>
+                    <Link>
+                    <h1 className='font-semibold text-xl hover:text-[#00b22d]'>Current Pay Period</h1>
+                    </Link>
                         <Link>
-                                <div className='flex items-center gap-2'>
+                                <div className='flex items-center gap-2 hover:text-[#00b22d]'>
                                                     <h1 className='font-semibold text-xl'>View Next Pay Period </h1>
                                                     <HiOutlineArrowNarrowRight className='w-6 h-6'></HiOutlineArrowNarrowRight>
                                             </div>

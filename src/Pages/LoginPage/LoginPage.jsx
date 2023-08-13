@@ -1,9 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 const LoginPage = () => {
     const [showpass, setShowPass] = useState(false);
+   
+    const [error, setError] = useState('');
+    const { users,loading } = useContext(AuthContext);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;  
+        const password = form.password.value;
+        
+        const UserInfo = users.find(user => user.email == email);
+        console.log(UserInfo)
+
+        if (email === UserInfo?.email && password === UserInfo?.password) {
+            localStorage.setItem("UserEmail", email)
+            window.location.href = '/dashboard'
+            loading()
+
+            toast.success("Login Suxxessful");
+        }
+        else {
+            return setError('Wrong Email or Password')
+        }
+        
+
+    }
 
     return (
 
@@ -19,7 +47,7 @@ const LoginPage = () => {
                         <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign in to Continue</h2>
                         <p className="mt-2 text-base text-gray-600">Don’t have an account? <Link to='/register' title="" className="font-medium text-[#00b22d] transition-all duration-200 hover:text-[#00b22d] hover:underline focus:text-[#00b22d">Create a free account</Link></p>
 
-                        <form method="POST" className="my-10">
+                        <form method="POST" onSubmit={handleSubmit} className="my-10">
                             <div className="space-y-5">
                                 <div>
                                     <label htmlFor="email" className="text-base font-medium text-gray-900"> Email address </label>
@@ -74,15 +102,15 @@ const LoginPage = () => {
                                 </div>
 
                                 <div className='text-red-600'>
-                                    
-                                </div>
+                                   {error}
+                               </div>
 
                                 <div>
-                                        <Link to="/dashboard">
+                                        
                                         <button type="submit" className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-[#00b22d] border border-transparent rounded-md focus:outline-none hover:bg-[#00b22d] focus:bg-[#00b22d">
                                         Sign In
                                         </button>
-                                        </Link>
+                                       
                                         
                                 </div>
                             </div>

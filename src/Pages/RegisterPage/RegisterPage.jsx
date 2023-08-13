@@ -1,16 +1,114 @@
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+
 import { Link } from 'react-router-dom';
 
+
 const RegisterPage = () => {
+    
+
   const [showpass, setShowPass] = useState(false);
   const [error, setError] = useState('');
-  const [wrongPass, setWrongPass] = useState('');
+    const [wrongPass, setWrongPass] = useState('');
+
+
+
+
+    
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const confirm = form.confirm.value;
+        const password = form.password.value;
+        const photo = form.photo.files[0];
+
+
+        // console.log(name, email, password, confirm, photo);
+
+
+
+        if (!/(?=.*[!@#$%^&*])/.test(password)) {
+            setError('Please add a special carecter')
+            return;
+
+        }
+
+
+
+        if (password !== confirm) {
+            setWrongPass('PassWord did not match');
+            return;
+        }
+
+
+
+        const formData = new FormData()
+        formData.append('image', photo)
+
+        const url = 'https://api.imgbb.com/1/upload?key=c993754e5e7bdf8ca9412defbbd79642'
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(res => res.json())
+            .then(imageData => {
+
+                if (imageData.success) {
+
+                    const userInfo = {
+                        name,
+                        photo: imageData.data.url,
+                        email,
+                        password
+                        
+
+
+                    }
+                    console.log(userInfo)
+                    // save doctor information to the database
+
+
+                fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(userInfo)
+            })
+                .then(res => res.json())
+                .then(result => {
+                    if (result.acknowledged) {
+                        toast.success(`${name} your account created Successfully`);
+                        localStorage.setItem('UserEmail', email)
+                        window.location.href = '/dashboard'
+                    }
+                    console.log(result)
+                })
+
+                   
+                }
+            
+              })  
+    
+
+                
+              
+
+
+
+
+        
+    }
 
 
     return (
         <div className='bg-indigo-50'>
             <div className=" w-3/4 mx-auto">
-                <form  className="px-10 md:py-12 py-9 md:flex items-center justify-center">
+                <form onSubmit={handleSubmit}  className="px-10 md:py-12 py-9 md:flex items-center justify-center">
 
                     <div className="bg-white shadow-lg rounded xl:w-1/2 w-2/3 w-full lg:px-10 sm:px-6 sm:py-10 px-10 py-6 mb-20 md:mb-0">
                         <p tabIndex={0} className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">
@@ -41,14 +139,14 @@ const RegisterPage = () => {
                                 name='name' id="name" aria-labelledby="name" type="text" className="bg-gray-200 border bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 " placeholder="e.g: Md Shijan Ali " required />
                         </div>
                         <div className="mt-6 w-full">
-                            <label htmlFor="photoURL" className="text-sm font-medium leading-none text-gray-800">
+                            <label htmlFor="photo" className="text-sm font-medium leading-none text-gray-800">
                                 {" "}
                                 Select Image{" "}
                             </label>
                             <input
                                 type='file'
-                                id='photoURL'
-                                name='photoURL'
+                                id='photo'
+                                name='photo'
                                 accept='image/*'
                                 required
                             />
@@ -89,6 +187,8 @@ const RegisterPage = () => {
                                 </div>
                             </div>
                         </div>
+                        
+                        
                         <p className='text-lg text-red-700'>  </p>
                         <div className="mt-6 w-full">
                             <label htmlFor="confirm" className="text-sm font-medium leading-none text-gray-800">
@@ -128,11 +228,11 @@ const RegisterPage = () => {
 
 
                         <div className="mt-8">
-                            <Link to="/dashboard">
-                            <button className="focus:ring-2 focus:ring-offset-2 focus:ring-[#00b22d] text-sm font-semibold leading-none text-white focus:outline-none bg-[#00b22d] border rounded hover:bg-[#00b22d] py-4 w-full">
+                            
+                            <button type='submit' className="focus:ring-2 focus:ring-offset-2 focus:ring-[#00b22d] text-sm font-semibold leading-none text-white focus:outline-none bg-[#00b22d] border rounded hover:bg-[#00b22d] py-4 w-full">
                                 Create my account
                             </button>
-                            </Link>
+                            
                         </div>
                     </div>
                     <div className="xl:w-1/2 lg:pl-8 md:pl-8 md:w-1/2 w-full mx-auto md:mt-0 mt-6">
