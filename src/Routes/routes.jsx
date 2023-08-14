@@ -14,6 +14,7 @@ import AddIncome from "../Pages/Dashboard/AddIncome";
 import AddExpense from "../Pages/Dashboard/AddExpense";
 import Settings from "../Pages/Dashboard/Settings";
 import Users from "../Pages/Dashboard/Users";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 export const routes = createBrowserRouter([
 
@@ -52,27 +53,27 @@ export const routes = createBrowserRouter([
 
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard/>
+                element: <PrivetRoute><Dashboard/></PrivetRoute>
             },
             {
                 path: 'add-income',
-                element: <AddIncome/>
+                element: <PrivetRoute><AddIncome/></PrivetRoute>
             },
             {
                 path: 'add-expense',
-                element: <AddExpense/>
+                element: <PrivetRoute><AddExpense/></PrivetRoute>
             },
             {
                 path: 'settings',
-                element: <Settings/>
+                element: <PrivetRoute><Settings/></PrivetRoute>
             },
             {
                 path: 'users',
-                element: <Users/>
+                element: <PrivetRoute><Users/></PrivetRoute>
             }
         ]
     }

@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider'
 
 const Settings = () => {
+    const { UserInfo } = useContext(AuthContext);
+    console.log(UserInfo);
   return (
     <div className='flex justify-center items-center min-h-screen'>
        
@@ -13,7 +16,10 @@ const Settings = () => {
                                 <label className="block dark:text-white text-gray-700 font-bold mb-2" htmlFor="photo">
                                         Upload Profile Photo
                                     </label>
-                                <input id='photo' name='photo' type="file" className="file-input file-input-bordered file-input-success w-full " />
+                      {
+                          UserInfo ? <input id='photo' name='photo' type="file" className="file-input file-input-bordered file-input-success w-full " /> :
+                          <input disabled id='photo' name='photo' type="file" className="file-input file-input-bordered file-input-success w-full " />
+                               }
                                 
                                       
 
@@ -24,7 +30,10 @@ const Settings = () => {
                                         Full Name
                                     </label>
               
-                                    <input type="text" id='name' name='name' placeholder="Md Shijan Ali" className="input input-bordered input-success w-full" />
+                      {
+                          UserInfo ? <input type="text" id='name' name='name' placeholder={UserInfo?.name} className="input input-bordered input-success w-full" /> :
+                          <input disabled type="text" id='name' name='name' placeholder="" className="input input-bordered input-success w-full" />
+                                    }
                             
                                </div>
                                 <div className="mb-4">
@@ -32,7 +41,10 @@ const Settings = () => {
                                         Email
                                     </label>
               
-                                    <input disabled type="email" id='email' name='email' placeholder="shijan135@gmail.com" className="input input-bordered input-success w-full" />
+                      {
+                          UserInfo ? <input disabled type="email" id='email' name='email' placeholder={UserInfo?.email} className="input input-bordered input-success w-full" /> :
+                          <input disabled type="email" id='email' name='email' placeholder="" className="input input-bordered input-success w-full" />
+                                }
                             
                                </div>
                                 <div className="mb-4">
@@ -40,7 +52,10 @@ const Settings = () => {
                                         Phone
                                     </label>
               
-                                    <input type="number" id='phone' name='phone' placeholder="+880 1571261165" className="input input-bordered input-success w-full" />
+                      {
+                          UserInfo ? <input type="number" id='phone' name='phone' placeholder="+880 1571261165" className="input input-bordered input-success w-full" /> :
+                          <input disabled type="number" id='phone' name='phone' placeholder="" className="input input-bordered input-success w-full" />
+                                    }
                             
                                </div>
                         
@@ -49,7 +64,10 @@ const Settings = () => {
 
 
                                 <div className="modal-action">
-                                    <button type='submit' className="btn bg-[#00b22d] text-white hover:bg-[#00b22d]">Update</button>
+                      {
+                          UserInfo ? <button type='submit' className="btn bg-[#00b22d] text-white hover:bg-[#00b22d]">Update</button> :
+                          <button disabled type='submit' className="btn bg-[#00b22d] text-white hover:bg-[#00b22d]">Update</button>
+                                    }
                                 </div>
                             </form>
 

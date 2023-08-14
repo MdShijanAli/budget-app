@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 
 const RegisterPage = () => {
-    
+    const { users } = useContext(AuthContext);
+
+
 
   const [showpass, setShowPass] = useState(false);
   const [error, setError] = useState('');
     const [wrongPass, setWrongPass] = useState('');
+    const [usererr, setUsererr] = useState('');
+    const [userPassErr, setUserPasserr] = useState('');
 
 
 
@@ -43,6 +48,15 @@ const RegisterPage = () => {
             return;
         }
 
+        if (users.some(user => user.email === email)) {
+            setUsererr('This email already has an account');
+            return;
+        }
+        if (users.some(user => user.password === password)) {
+            setUserPasserr('Please Change this Password. It is not safe.');
+            return;
+        }
+
 
 
         const formData = new FormData()
@@ -71,7 +85,7 @@ const RegisterPage = () => {
                     // save doctor information to the database
 
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://budget-app-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -223,6 +237,12 @@ const RegisterPage = () => {
                         </div>
                         <div className='text-red-600'>
                             {wrongPass}
+                        </div>
+                        <div className='text-red-600'>
+                            {usererr}
+                        </div>
+                        <div className='text-red-600'>
+                            {userPassErr}
                         </div>
 
 
