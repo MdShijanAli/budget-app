@@ -7,7 +7,7 @@ import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const PrivetRoute = ({children}) => {
 
-  const { UserInfo, loading } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
 
 
 
@@ -31,7 +31,7 @@ const PrivetRoute = ({children}) => {
   }
 
 
-  if (!UserInfo) {
+  if (!user) {
       return <Navigate to='/login'></Navigate>
   }
   return children;

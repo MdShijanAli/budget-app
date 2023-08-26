@@ -1,27 +1,33 @@
 import React, { useContext } from 'react';
 import './style.css';
 import { toast } from 'react-hot-toast';
-
 import { FaUserCircle,FaUsers} from 'react-icons/fa';
+import {GrLocation} from 'react-icons/gr';
 import { BiSolidDashboard } from 'react-icons/bi';
 import { AiFillSetting } from 'react-icons/ai';
 import { GiPayMoney,GiReceiveMoney } from 'react-icons/gi';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import Header from '../../Components/ErrorPage/Header';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import Loading from '../../Components/ErrorPage/Loading';
 
 
 const DashboardLayout = () => {
-    const navigate = useNavigate();
-    const { UserInfo,loading } = useContext(AuthContext);
+    
+    const { UserInfo,logOut } = useContext(AuthContext);
      
     
 
-    const handleLogout =() => {
-        localStorage.removeItem("UserEmail");
-        navigate('/login');
-        toast.success("Logout Successfully")
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                console.log('successfuly logout');
+                
+                toast.success('You have logged Out Successfully!!')
+                window.location.href = '/';
+            })
+            .catch(error => {
+                console.error('error', error.message)
+            })
     }
 
 
@@ -47,7 +53,7 @@ const DashboardLayout = () => {
 
                         <div className="avatar w-full  mt-10">
                             {UserInfo? <div className="w-24 h-24 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={UserInfo?.photo} alt="" />
+                                <img src={UserInfo?.photoURL} alt="" />
                              </div>:  <FaUserCircle className='w-24 h-24 mx-auto bg-[#fff] rounded-full ring ring-[#00b22d] ring-offset-base-100 ring-offset-2' /> }
                 
                
@@ -55,11 +61,13 @@ const DashboardLayout = () => {
 
                         <div className='text-center text-white'>
                             {
-                                UserInfo ? <h2 className='text-2xl font-semibold'>{UserInfo?.name }</h2>: <h2 className='text-2xl font-semibold'>No Name</h2>
+                                UserInfo ? <h2 className='text-2xl font-semibold'>{UserInfo?.displayName }</h2>: <h2 className='text-2xl font-semibold'>No Name</h2>
                             }
                             {
                                 UserInfo ? <h4 className='font-semibold'>{UserInfo?.email}</h4> : <h4 className='font-semibold'>no-email@gmail.com</h4>
                             }
+                          
+                            
                         </div>
 
                         

@@ -6,12 +6,13 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 
 const RegisterPage = () => {
-    const { users } = useContext(AuthContext);
+    const { createUser, loading, setLoading, updateUserProfile, } = useContext(AuthContext);
 
 
 
-  const [showpass, setShowPass] = useState(false);
-  const [error, setError] = useState('');
+    const [showpass, setShowPass] = useState(false);
+    const [showConfirmPass, setShowConfirmPass] = useState(false);
+    const [error, setError] = useState('');
     const [wrongPass, setWrongPass] = useState('');
     const [usererr, setUsererr] = useState('');
     const [userPassErr, setUserPasserr] = useState('');
@@ -28,10 +29,10 @@ const RegisterPage = () => {
         const email = form.email.value;
         const confirm = form.confirm.value;
         const password = form.password.value;
-        const photo = form.photo.files[0];
+        const image = form.image.files[0];
 
 
-        // console.log(name, email, password, confirm, photo);
+        // console.log(name, email, password, confirm, photoURL);
 
 
 
@@ -48,19 +49,19 @@ const RegisterPage = () => {
             return;
         }
 
-        if (users.some(user => user.email === email)) {
+        /* if (users.some(user => user.email === email)) {
             setUsererr('This email already has an account');
             return;
         }
         if (users.some(user => user.password === password)) {
             setUserPasserr('Please Change this Password. It is not safe.');
             return;
-        }
+        } */
 
 
 
         const formData = new FormData()
-        formData.append('image', photo)
+        formData.append('image', image)
 
         const url = 'https://api.imgbb.com/1/upload?key=c993754e5e7bdf8ca9412defbbd79642'
         fetch(url, {
@@ -73,50 +74,67 @@ const RegisterPage = () => {
                 if (imageData.success) {
 
                     const userInfo = {
-                        name,
-                        photo: imageData.data.url,
+                        displayName: name,
+                        photoURL: imageData.data.url,
                         email,
-                        password
-                        
+                        role:"User"
 
 
                     }
                     console.log(userInfo)
                     // save doctor information to the database
 
-
-                fetch('https://budget-app-server.vercel.app/users', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                    // authorization: `bearer ${localStorage.getItem('accessToken')}`
-                },
-                body: JSON.stringify(userInfo)
-            })
-                .then(res => res.json())
-                .then(result => {
-                    if (result.acknowledged) {
-                        toast.success(`${name} your account created Successfully`);
-                        localStorage.setItem('UserEmail', email)
-                        window.location.href = '/dashboard'
-                    }
-                    console.log(result)
-                })
-
-                   
+                    fetch('http://localhost:5000/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(userInfo)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            if (result.acknowledged) {
+                                toast.success(`${name} is Added Successfully`);
+                                navigate('/')
+                            }
+                            console.log(result)
+                        })
                 }
-            
-              })  
-    
-
-                
-              
 
 
 
 
-        
+
+                createUser(email, password)
+                    .then(result => {
+                        // setAuthToken(result.user)
+                        setError('');
+                        window.location.href = "/dashboard"
+                        toast.success('Account Creation SUccess')
+                        
+                        
+                    })
+                    .catch(error => {
+                        console.error('create user account error', error)
+                        setError(error.message);
+                        setLoading(false)
+                    })
+
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
+
+
+        // console.log(name, check, email, image, password, confirm)
+
+
+
+
     }
+
+
 
 
     return (
@@ -150,17 +168,17 @@ const RegisterPage = () => {
                             </label>
                             <input
 
-                                name='name' id="name" aria-labelledby="name" type="text" className="bg-gray-200 border bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 " placeholder="e.g: Md Shijan Ali " required />
+                                name='name' id="name" aria-labelledby="name" type="text" className="block w-full p-3 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white caret-blue-600 mt-2" placeholder="e.g: Md Shijan Ali " required />
                         </div>
                         <div className="mt-6 w-full">
-                            <label htmlFor="photo" className="text-sm font-medium leading-none text-gray-800">
+                            <label htmlFor="image" className="text-sm font-medium leading-none text-gray-800">
                                 {" "}
                                 Select Image{" "}
                             </label>
                             <input
                                 type='file'
-                                id='photo'
-                                name='photo'
+                                id='image'
+                                name='image'
                                 accept='image/*'
                                 required
                             />
@@ -172,7 +190,7 @@ const RegisterPage = () => {
                             </label>
                             <input
 
-                                name='email' id="email" aria-labelledby="email" type="email" className="bg-gray-200 border bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2" placeholder="e.g: john@gmail.com " required />
+                                name='email' id="email" aria-labelledby="email" type="email" className="block w-full p-3 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white caret-blue-600 mt-2" placeholder="e.g: john@gmail.com " required />
                         </div>
                         <div className="mt-6 w-full">
                             <label htmlFor="password" className="text-sm font-medium leading-none text-gray-800">
@@ -180,7 +198,7 @@ const RegisterPage = () => {
                                 Password{" "}
                             </label>
                             <div className="relative flex items-center justify-center">
-                                <input name='password' id="password" type={showpass ? "text" : "password"} className="bg-gray-200 border rounded bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" required />
+                                <input name='password' id="password" placeholder='******'  type={showpass ? "text" : "password"} className="block w-full p-3 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white caret-blue-600 mt-2" required />
                                 <div onClick={() => setShowPass(!showpass)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
                                     <div id="show">
                                         <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -210,8 +228,8 @@ const RegisterPage = () => {
                                 Confirm Password{" "}
                             </label>
                             <div className="relative flex items-center justify-center">
-                                <input name='confirm' id="confirm" type={showpass ? "text" : "password"} className="bg-gray-200 border bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" required />
-                                <div onClick={() => setShowPass(!showpass)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
+                                <input name='confirm' id="confirm" placeholder='******'  type={showConfirmPass ? "text" : "password"} className="block w-full p-3 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-[#00b22d] focus:bg-white caret-blue-600 mt-2" required />
+                                <div onClick={() => setShowConfirmPass(!showConfirmPass)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
                                     <div id="show">
                                         <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -267,5 +285,4 @@ const RegisterPage = () => {
         </div>
     )
 }
-
 export default RegisterPage;

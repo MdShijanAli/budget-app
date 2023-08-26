@@ -8,19 +8,41 @@ const LoginPage = () => {
     const [showpass, setShowPass] = useState(false);
    
     const [error, setError] = useState('');
-    const { users,loading } = useContext(AuthContext);
+    const { setLoading,signIn } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;  
         const password = form.password.value;
-        
-        const UserInfo = users.find(user => user.email == email);
-        console.log(UserInfo)
 
-        if (email === UserInfo?.email && password === UserInfo?.password) {
+
+
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                form.reset();
+                setError('');
+               
+                toast.success("Login Suxxessful");
+                window.location.href =  "/dashboard"
+                console.log('Login User from form', user)
+            })
+            .catch(error => {
+                console.error('SIgn In from From User', error)
+                setError(error.message);
+                setLoading(false);
+            })
+
+
+        
+        // const UserInfo = users.find(user => user.email == email);
+        // console.log(UserInfo)
+
+        /* if (email === UserInfo?.email && password === UserInfo?.password) {
             localStorage.setItem("UserEmail", email)
+           
             window.location.href = '/dashboard'
             loading()
 
@@ -28,7 +50,7 @@ const LoginPage = () => {
         }
         else {
             return setError('Wrong Email or Password')
-        }
+        } */
         
 
     }
