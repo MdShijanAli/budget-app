@@ -84,7 +84,7 @@ const RegisterPage = () => {
                     console.log(userInfo)
                     // save doctor information to the database
 
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://budget-app-server.vercel.app/users', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

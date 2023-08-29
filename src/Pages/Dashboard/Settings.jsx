@@ -44,7 +44,7 @@ console.log("UserInfo", UserInfo)
                     }
                     console.log(userInfo)
 
-                    fetch(`http://localhost:5000/user/${UserInfo?._id}`, {
+                    fetch(`https://budget-app-server.vercel.app/user/${UserInfo?._id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json',
