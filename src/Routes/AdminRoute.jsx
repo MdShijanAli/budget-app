@@ -5,9 +5,9 @@ import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 
 
-const PrivetRoute = ({children}) => {
+const AdminRoute = ({children}) => {
 
-  const { user, loading } = useContext(AuthContext);
+  const { UserInfo, loading } = useContext(AuthContext);
 
 
 
@@ -31,11 +31,11 @@ const PrivetRoute = ({children}) => {
   }
 
 
-  if (!user) {
-      return <Navigate to='/login'></Navigate>
+  if (!UserInfo?.role== "Admin") {
+      return <Navigate to='/dashboard'></Navigate>
   }
   return children;
 
 };
 
-  export default PrivetRoute;
+  export default AdminRoute;

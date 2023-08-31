@@ -6,7 +6,7 @@ import {GrLocation} from 'react-icons/gr';
 import { BiSolidDashboard } from 'react-icons/bi';
 import { AiFillSetting } from 'react-icons/ai';
 import { GiPayMoney,GiReceiveMoney } from 'react-icons/gi';
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { NavLink, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import Header from '../../Components/ErrorPage/Header';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
@@ -98,12 +98,16 @@ const DashboardLayout = () => {
                                      </NavLink>
                             </li>
 
-                            <li className='text-xl '>
-                                     <NavLink className='text-white hover:text-[#00b22d] ' to='/dashboard/users'>
-                                          <FaUsers></FaUsers>
-                                          <span className='ml-2'>All User</span>
-                                     </NavLink>
-                            </li>
+                            {
+                                UserInfo?.role == "Admin" ? <li className='text-xl '>
+                                <NavLink className='text-white hover:text-[#00b22d] ' to='/dashboard/users'>
+                                     <FaUsers></FaUsers>
+                                     <span className='ml-2'>All User</span>
+                                </NavLink>
+                                </li> : <Navigate to="/dashboard"></Navigate>
+                                    
+                            }
+                            
 
                             <li className='text-xl '>
                                 <NavLink className='text-white hover:text-[#00b22d]' to='/dashboard/settings'>
