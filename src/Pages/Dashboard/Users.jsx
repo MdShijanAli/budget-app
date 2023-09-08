@@ -11,7 +11,7 @@ const Users = () => {
   const handleDelete = usr => {
 
 
-    fetch(`http://localhost:5000/users/${usr._id}`, {
+    fetch(`https://budget-app-server.vercel.app/users/${usr._id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
