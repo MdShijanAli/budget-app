@@ -1,10 +1,35 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ImBin } from 'react-icons/im';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { toast } from 'react-hot-toast';
+
 
 const Users = () => {
   const { users } = useContext(AuthContext);
   console.log(users);
+
+  const handleDelete = usr => {
+
+
+    fetch(`http://localhost:5000/users/${usr._id}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+          if (data.acknowledged) {
+           
+              toast.success('User Deleted Successfully')
+              window.location.href = "/dashboard/users";
+          
+              
+             
+                
+            }
+        })
+}
 
 
   return (
@@ -27,13 +52,13 @@ const Users = () => {
       
       
             {
-              users.map(user=> <tr key={user?._id} className='hover'>
+              users.map(usr=> <tr key={usr?._id} className='hover'>
         
               <td>
                          <div className="flex items-center space-x-3">
                            <div className="avatar">
                              <div className="mask mask-circle w-12 h-12">
-                               <img src={user?.photoURL} alt="Avatar Tailwind CSS Component" />
+                               <img src={usr?.photoURL} alt="Avatar Tailwind CSS Component" />
                              </div>
                            </div>
                          
@@ -41,19 +66,21 @@ const Users = () => {
                </td>
                <td>
                          <div>
-                    <div className="font-bold">{ user?.displayName}</div>
-                    <div className="badge badge-ghost badge-sm">{user?.email}</div>
+                    <div className="font-bold">{ usr?.displayName}</div>
+                    <div className="badge badge-ghost badge-sm">{usr?.email}</div>
                        </div>
                </td>
                <td>
-                {user?.country}               </td>
+                {usr?.country}               </td>
                <td>
-                 {user?.phone}
+                 {usr?.phone}
                </td>
-                <td>{user?.role}</td>
+                <td>{usr?.role}</td>
                <td>
                        <div className=''>
-                           <ImBin className='w-6 h-6 text-red-600'></ImBin>
+                    {
+                      usr?.role !== "Admin" ? <ImBin onClick={() => handleDelete(usr)} className='w-6 h-6 text-red-600'></ImBin>: ""
+                           }
                        </div>
                </td>
        </tr>)

@@ -8,7 +8,7 @@ const LoginPage = () => {
     const [showpass, setShowPass] = useState(false);
    
     const [error, setError] = useState('');
-    const { setLoading,signIn } = useContext(AuthContext);
+    const {loading, setLoading,signIn } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -130,7 +130,7 @@ const LoginPage = () => {
                                 <div>
                                         
                                         <button type="submit" className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-[#00b22d] border border-transparent rounded-md focus:outline-none hover:bg-[#00b22d] focus:bg-[#00b22d">
-                                        Sign In
+                                            {loading ? <span className="loading loading-dots loading-sm"></span> : "Sign In"}
                                         </button>
                                        
                                         

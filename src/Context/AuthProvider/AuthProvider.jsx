@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import Loading from '../../Components/ErrorPage/Loading';
 import app from '../../firebase/firebase.config';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth, updateProfile, onAuthStateChanged,  signOut, sendPasswordResetEmail } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth, updateProfile, onAuthStateChanged,  signOut, sendPasswordResetEmail, deleteUser } from "firebase/auth";
+
 
 export const AuthContext = createContext();
 
@@ -15,6 +15,8 @@ const AuthProvider = ({ children }) => {
     console.log("user", user?.email)
     const [loading, setLoading] = useState(true);
 
+
+    
 
     // create user with email and password
 
@@ -38,6 +40,14 @@ const AuthProvider = ({ children }) => {
         })
     }
 
+    // delete user from firebase
+
+    
+    /* const userDelete = (user) => {
+        return deleteUser(user)
+    }
+ */
+  
     const logOut = () => {
         setLoading(true);
         localStorage.removeItem('greenTechToken')
@@ -115,7 +125,8 @@ const AuthProvider = ({ children }) => {
         logOut,
         passResetEmail,
         loading,
-        setLoading
+        setLoading,
+        // userDelete
 
         
 

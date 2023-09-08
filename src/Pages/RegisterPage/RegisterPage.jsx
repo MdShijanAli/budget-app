@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 
 const RegisterPage = () => {
-    const { createUser, loading, setLoading, updateUserProfile, } = useContext(AuthContext);
+    const { createUser,users, loading, setLoading, updateUserProfile, } = useContext(AuthContext);
 
 
 
@@ -34,7 +34,7 @@ const RegisterPage = () => {
 
         // console.log(name, email, password, confirm, photoURL);
 
-
+        
 
         if (!/(?=.*[!@#$%^&*])/.test(password)) {
             setError('Please add a special carecter')
@@ -49,10 +49,11 @@ const RegisterPage = () => {
             return;
         }
 
-        /* if (users.some(user => user.email === email)) {
-            setUsererr('This email already has an account');
+        if (users.some(user => user.email === email)) {
+            setUsererr('This email already has an account, Please Login');
             return;
         }
+        /* 
         if (users.some(user => user.password === password)) {
             setUserPasserr('Please Change this Password. It is not safe.');
             return;
@@ -96,7 +97,7 @@ const RegisterPage = () => {
                         .then(result => {
                             if (result.acknowledged) {
                                 toast.success(`${name} is Added Successfully`);
-                                navigate('/')
+                                
                             }
                             console.log(result)
                         })
@@ -107,7 +108,7 @@ const RegisterPage = () => {
 
 
                 createUser(email, password)
-                    .then(result => {
+                    .then(() => {
                         // setAuthToken(result.user)
                         setError('');
                         window.location.href = "/dashboard"
@@ -267,8 +268,10 @@ const RegisterPage = () => {
 
                         <div className="mt-8">
                             
-                            <button type='submit' className="focus:ring-2 focus:ring-offset-2 focus:ring-[#00b22d] text-sm font-semibold leading-none text-white focus:outline-none bg-[#00b22d] border rounded hover:bg-[#00b22d] py-4 w-full">
-                                Create my account
+                            <button type='submit' className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-[#00b22d] border border-transparent rounded-md focus:outline-none hover:bg-[#00b22d] focus:bg-[#00b22d">
+                                {
+                                    loading? <span className="loading loading-dots loading-sm"></span>: "Create my account"
+                               } 
                             </button>
                             
                         </div>
